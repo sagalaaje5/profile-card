@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+
+        <h2>Kirim Pesan</h2>
+
+        <form id="contactForm" action="#" method="post">
+            <label for="name">Nama</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="issue">Permasalahan/Pertanyaan</label>
+            <textarea id="issue" name="issue" rows="6" required></textarea>
+
+            <div class="buttons" style="margin-top:15px;">
+                <button type="submit" class="follow">Kirim</button>
+                <a href="index.html" class="message">Kembali</a>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const issue = document.getElementById('issue').value.trim();
+
+    const message = `Nama: ${name}\nEmail: ${email}\nPermasalahan: ${issue}`;
+    const phone = '6289507782013';
+    const url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
+
+    window.open(url, '_blank');
+});
+</script>
+</html>
